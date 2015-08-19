@@ -1,0 +1,8 @@
+{
+	"name": "CanJS Inspector",
+	"version": "0.0.0",
+	"description": "",
+	"devtools_page": "index.html",
+	"permissions": ["tabs"],
+	"manifest_version": 2
+}
