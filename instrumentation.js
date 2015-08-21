@@ -1,6 +1,14 @@
-var send = function(vm) {
+var send = function(vm, controls) {
+	var serializedControls = [];
+
+	for(var i = 0; i < controls.length; i++) {
+		var control = JSON.parse(JSON.stringify(controls[i]));
+		serializedControls.push(control);
+	}
+
 	window.postMessage({
-		viewModel: vm
+		viewModel: vm,
+		controls: serializedControls
 	}, '*');
 };
 
@@ -17,9 +25,10 @@ var inspect = function(el) {
 		cur = vm;
 
 		vm.bind('change', updatePanel);
-
-		send(vm.serialize());
+		vm = vm.serialize();
 	}
+
+	send(vm, can.$(el).data().controls);
 },
 
 update = function(el, data) {
