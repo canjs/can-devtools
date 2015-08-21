@@ -1,0 +1,77 @@
+devtools-property {
+	.editor {
+		display: none;
+	}
+	.value {
+		display: inline-block;
+	}
+
+	.editing {
+		.editor {
+			display: inline-block;
+		}
+		.value {
+			display: none;
+		}
+	}
+
+	.object-value-node:hover {
+	    background-color: rgba(56, 121, 217, 0.1);
+	}
+
+	.object-value-function::before {
+	    content: "function";
+	    color: rgb(170, 13, 145);
+	    padding-right: 5px;
+	}
+
+	.object-value-function {
+	    font-style: italic;
+	}
+
+	.object-value-function:hover > span {
+	    text-decoration: underline;
+	    cursor: pointer;
+	}
+
+	.object-value-object,
+	.object-value-map,
+	.object-value-set,
+	.object-value-iterator,
+	.object-value-generator,
+	.object-value-node,
+	.object-value-array {
+	    position: relative;
+	    vertical-align: top;
+	    color: inherit;
+	    display: inline-block;
+	}
+
+	.object-value-number,
+	.object-value-boolean {
+	    color: rgb(28, 0, 207);
+	}
+
+	.object-value-string,
+	.object-value-regexp,
+	.object-value-symbol {
+	    color: rgb(196, 26, 22);
+	    white-space: nowrap;
+	    unicode-bidi: -webkit-isolate;
+	}
+
+	.object-value-node {
+	    color: rgb(136, 18, 128);
+	}
+
+	.object-value-null,
+	.object-value-undefined {
+	    color: rgb(128, 128, 128);
+	}
+
+	.object-value {
+	    text-overflow: ellipsis;
+	    overflow: hidden;
+	    -webkit-user-select: text;
+	}
+}

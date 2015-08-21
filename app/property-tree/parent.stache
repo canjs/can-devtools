@@ -1,0 +1,6 @@
+{{#each .}}
+	<li class="{{#if hasChildren}}parent{{/if}}">
+		<devtools-property property="{.}"></devtools-property>
+	</li>
+	{{> children}}
+{{/each}}

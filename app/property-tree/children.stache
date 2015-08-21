@@ -1,0 +1,7 @@
+<ol class="children">
+	{{#if val}}
+		{{#with val}}
+			{{> parent}}
+		{{/with}}
+	{{/if}}
+</ol>

@@ -22,10 +22,6 @@ chrome.devtools.inspectedWindow
 .eval('!' + updateFn.toString() + '(' + JSON.stringify(attrs) + ')');
  */
 
-chrome.devtools.inspectedWindow.eval('instrument()', {
-	useContentScriptContext: true
-});
-
 //These two functions will be executed in the context of the page.
 var inspectFn = function() {
 	if($0) inspect($0);

@@ -1,6 +1,19 @@
 <!doctype html>
 <html>
+	<head>
+		<title>CanJS Dev Tools</title>
+		<link rel="stylesheet" type="text/css" href="dist/bundles/dev-tools/index.css">
+	</head>
 	<body>
-		<script src="panel.js"></script>
+		<script>
+		  steal = {
+		    instantiated: {
+		      "dist/bundles/dev-tools/index.css!$css" : null
+		    }
+		  }
+		</script>
+		<script src="dist/bundles/app.js" base-url="." env="production"></script>
+		<!--script src="panel.js"></script-->
 	</body>
 </html>
+</body>

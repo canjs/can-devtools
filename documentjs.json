@@ -1,0 +1,14 @@
+{
+  "sites": {
+    "docs": {
+      "dest": "docs",
+      "parent": "dev-tools",
+      "pageConfig": {
+        "page": "docs"
+      },
+      "glob": {
+        "pattern": "app/**/*.{js,md}"
+      }
+    }
+  }
+}
