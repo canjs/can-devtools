@@ -1,8 +1,19 @@
 {
+	"manifest_version": 2,
+
 	"name": "CanJS Inspector",
 	"version": "0.0.2",
-	"description": "",
+	"description": "Debugging tool for CanJS applications.",
+
 	"devtools_page": "index.html",
-	"permissions": ["tabs"],
-	"manifest_version": 2
+	"permissions": ["<all_urls>", "activeTab"],
+
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+
+	"web_accessible_resources": [
+		"instrumentation.js"
+	]
 }

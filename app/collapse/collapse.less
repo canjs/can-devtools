@@ -1,0 +1,43 @@
+devtools-collapse {
+  display: block;
+
+  &.collapse-closed {
+	  h2:before {
+	  	content: "\25B6";
+		}
+
+		.collapse-content {
+		  display: none;
+		}
+
+	}
+
+  h2 {
+	  margin-top: -1px;
+	  padding: 2px 2px 2px 5px;
+	  border-top: 1px solid #bdbdbd;
+	  border-bottom: 1px solid #bdbdbd;
+	  background-color: #f0f0f0;
+	  cursor: default;
+	  -webkit-user-select: none;
+
+	  &.no-content:before {
+  		opacity: 0;
+	  }
+
+	  &:before {
+		  content: "\25BC";
+		  color: #737373;
+		  margin-right: 4px;
+		  position: relative;
+		  top: -1px;
+		  font-size: 75%;
+	  }
+
+	  &:active {
+	  	background-color: #ccc;
+  		border-top: 1px solid #b2b2b2;
+  		border-bottom: 1px solid #b2b2b2;
+	  }
+	}
+}

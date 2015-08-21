@@ -1,0 +1,63 @@
+{
+  "name": "dev-tools",
+  "version": "0.0.0",
+  "description": "CanJs dev tool application",
+  "homepage": "",
+  "author": {
+    "name": "Bitovi",
+    "email": "contact@bitovi.com",
+    "url": "bitovi.com"
+  },
+  "scripts": {
+    "test": "testee test.html --browsers firefox --reporter Spec --root http://localhost:8080",
+    "start": "can-serve --port 8080",
+    "build": "node build.js",
+    "live-reload": "steal-tools live-reload",
+    "develop": "npm start & npm run live-reload",
+    "document": "documentjs"
+  },
+  "main": "dev-tools/app.js",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "canjs",
+    "devtools"
+  ],
+  "system": {
+    "main": "dev-tools/app.js",
+    "directories": {
+      "lib": "app"
+    },
+    "configDependencies": [
+      "live-reload"
+    ],
+    "npmIgnore": [
+      "documentjs",
+      "testee",
+      "donejs-deploy",
+      "yeoman-environment",
+      "generator-donejs"
+    ]
+  },
+  "dependencies": {
+    "can": "^2.3.0-pre.8",
+    "can-connect": "^0.2.7",
+    "can-ssr": "^0.5.4",
+    "done-autorender": "^0.3.1",
+    "done-component": "^0.1.0",
+    "done-css": "^1.1.6",
+    "generator-donejs": "^0.2.8",
+    "jquery": "^2.1.4",
+    "steal": "^0.11.0-pre.6",
+    "yeoman-environment": "^1.2.7"
+  },
+  "devDependencies": {
+    "documentjs": "^0.3.0",
+    "donejs-deploy": "^0.1.5",
+    "funcunit": "^3.0.0",
+    "steal-qunit": "^0.1.1",
+    "steal-tools": "^0.11.0-pre.9",
+    "testee": "^0.2.0"
+  }
+}
