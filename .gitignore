@@ -1,5 +1,5 @@
-/dist
 .DS_Store
+chrome_extension/dist
 /node_modules
 npm-debug.log
 *.orig

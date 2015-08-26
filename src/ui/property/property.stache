@@ -1,0 +1,26 @@
+<span class="name">{{key}}</span>
+<span class="object-properties-section-separator">: </span>
+<span class="value object-value-{{type}} {{#if showEditor}}editing{{/if}}">
+
+	{{#eq type 'null'}}
+		null
+	{{/eq}}
+	
+	{{#eq type 'array'}}
+		Array[{{len}}]
+	{{/eq}}
+
+	{{#eq type 'object'}}
+		Object
+	{{/eq}}
+
+	{{#eq type 'function'}}
+		function ()
+	{{/eq}}
+
+	{{#if editable}}
+		<input class="editor" type="text" can-value="val" (enter)="save" (blur)="{save}">
+		<span class="value" (dblclick)="edit">{{val}}</span>
+	{{/if}}
+
+</span>

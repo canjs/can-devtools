@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "CanJS Inspector",
+  "version": "0.0.2",
+  "description": "Debugging tool for CanJS applications.",
+
+  "devtools_page": "devtools.html",
+  "permissions": ["<all_urls>", "activeTab"],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content-script.js"],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+
+  "web_accessible_resources": [
+    "content-script.js"
+  ]
+}

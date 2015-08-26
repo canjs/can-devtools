@@ -1,0 +1,17 @@
+<can-import from="can-devtools/ui/styles.less!" />
+<can-import from="can-devtools/ui/collapse/" />
+<can-import from="can-devtools/ui/property-tree/" />
+
+{{#if inactive}}
+	<h1>CanJS not Detected</h1>
+{{/if}}
+
+{{#if viewModel.length}}
+	<devtools-collapse opened="true" title="ViewModel">
+	  <devtools-property-tree object="{viewModel}"></devtools-property-tree>
+	</devtools-collapse>
+{{/if}}
+
+<hr>
+
+{{stringifiedData}}

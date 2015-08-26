@@ -1,7 +1,0 @@
-<can-import from="dev-tools/styles.less!" />
-<can-import from="dev-tools/collapse/" />
-<can-import from="dev-tools/property-tree/" />
-
-<devtools-collapse opened="true" title="ViewModel">
-  <devtools-property-tree object="{vmObject}" parsed-object="{vmParsedObject}"></devtools-property-tree>
-</devtools-collapse>

@@ -1,5 +1,0 @@
-<ol class="tree-outline">
-	{{#with parsedObject}}
-		{{> parent}}
-	{{/with}}
-</ol>

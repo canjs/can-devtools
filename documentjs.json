@@ -7,7 +7,7 @@
         "page": "docs"
       },
       "glob": {
-        "pattern": "app/**/*.{js,md}"
+        "pattern": "src/**/*.{js,md}"
       }
     }
   }
