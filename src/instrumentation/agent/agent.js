@@ -16,7 +16,7 @@ class Agent {
   listen () {
     window.addEventListener('message', function(event) {
       var message = event.data;
-      // console.log('-> Instrumentation', message);
+      console.log('-> Instrumentation', message);
 
       if (!this.isValidMessage(event)) {
         return;
@@ -72,7 +72,8 @@ class Agent {
 
   sendUpdate () {
     var message = this.getMessageFromBehaviors();
-    sendMessage('update', message);
+    //TODO: circular objects
+    sendMessage('update', JSON.stringify(message));
   }
 
   setSelectedElement (el) {

@@ -37,3 +37,24 @@ export function compose(obj, type) {
   });
   return unparsed;
 };
+
+export function omit (item, keys) {
+  var type = typeof item;
+  if((type !== 'object' && type !== 'array') || keys.length === 0) {
+    return item;
+  }
+
+  if(type === 'array') {
+    return item.map(function(arrayItem) {
+      return omit(arrayItem, keys);
+    });
+  } else {
+    var res = {}
+    for(var key in item) {
+      if(keys.indexOf(key) === -1) {
+        res[key] = omit(item[key], keys);
+      }
+    }
+    return res;
+  }
+}

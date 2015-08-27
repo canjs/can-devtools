@@ -1,16 +1,16 @@
 import can from 'can';
 import sendMessage from 'can-devtools/ui/send-message/';
-import {parse, compose} from 'can-devtools/ui/util/object';
+import {parse, compose, omit} from 'can-devtools/ui/util/object';
 import deepEqual from 'deep-equal';
 
 var dataToSend = {};
 var sendTimer;
 var batchedSend = function(data) {
-	// console.log('UI: attempting to send', data);
+	console.log('UI: attempting to send', data);
 	can.extend(true, dataToSend, data);
 	window.clearTimeout(sendTimer);
 	sendTimer = window.setTimeout(function() {
-		// console.log('UI: finally sending', dataToSend);
+		console.log('UI: finally sending', dataToSend);
 		sendMessage('update', dataToSend);
 		dataToSend = {};
 	}, 10);
@@ -33,6 +33,8 @@ var sourceList = Object.keys(sources);
 
 var uiBatchNum = null;
 var instBatchNum = null;
+var updateTimer;
+var propsToOmit = ['__bindEvents', '_bubbleBindings', '_cid', '_data', '_computedBindings', '_bindings'];
 
 export function bind(appViewModel) {
 
@@ -44,7 +46,7 @@ export function bind(appViewModel) {
 		data[name].bind('change', function(ev, attr, how, newVal) {
 
 			if(!ev.batchNum || (ev.batchNum && ev.batchNum !== uiBatchNum)) {
-				// console.log('UI: data.' + name + ':changed');
+				console.log('UI: data.' + name + ':changed');
 				var convertedValue = sources[name].convert(appViewModel.attr('data.' + name));
 				appViewModel[name].attr(convertedValue, true);
 
@@ -56,22 +58,25 @@ export function bind(appViewModel) {
 		appViewModel[name].bind('change', function(ev, attr, how, newVal) {
 
 			if(!ev.batchNum || (ev.batchNum && ev.batchNum !== instBatchNum)) {
-				// console.log('UI: ' + name + ':changed');
-				var serializedValue = sources[name].serialize(appViewModel.attr(name));
+				window.clearTimeout(updateTimer);
+				console.log('UI: ' + name + ':changed');
+				updateTimer = window.setTimeout(function(){
+					console.log('UI: ' + name + ':changed (finally!)');
+					var serializedValue = sources[name].serialize(appViewModel.attr(name));
 
-				if(deepEqual(serializedValue, data[name].serialize())) {
-					// console.log('UI: ' + name + ':aborted');
-					return;
-				}
+					if(deepEqual(serializedValue, data[name].serialize())) {
+						console.log('UI: ' + name + ':aborted');
+						return;
+					}
 
-				var message = {};
-				message[name] = serializedValue;
+					var message = {};
+					message[name] = serializedValue;
 
-				batchedSend(message);
+					batchedSend(message);
 
-				instBatchNum = ev.batchNum;
+					instBatchNum = ev.batchNum;
+				}.bind(this), 10);
 			}
-
 		});
 
 	});
@@ -84,7 +89,7 @@ export function update(newData) {
 	Object.keys(newData).forEach(function(name) {
 
 		if(list.indexOf(name) > -1) {
-			appViewModel.data[name].attr(newData[name], true);
+			appViewModel.data[name].attr(omit(newData[name], propsToOmit), true);
 		}
 
 	});

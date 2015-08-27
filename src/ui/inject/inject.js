@@ -1,7 +1,7 @@
 import sendMessage from 'can-devtools/ui/send-message/';
 
 var inject = function () {
-  // console.log('UI:', 'injecting instrumentation');
+  console.log('UI:', 'injecting instrumentation');
   var global = 'window.__can_devtools_instrumentation_injected__';
 
   chrome.devtools.inspectedWindow.eval(global, function(result, isException) {

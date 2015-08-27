@@ -22,7 +22,7 @@ class Bridge {
   }
   runInstrumentationCommand (cmd, args) {
     chrome.devtools.inspectedWindow.eval('window.__can_devtools_instrumentation_agent__.' + cmd + '(' + args + ')', function(result, isException) {
-      // console.log('UI: runInstrumentationCommand', cmd, args, result, isException);
+      console.log('UI: runInstrumentationCommand', cmd, args, result, isException);
       //TODO: Handle errors
     });
   }
@@ -30,7 +30,7 @@ class Bridge {
     this.runInstrumentationCommand('setSelectedElement', '$0');
   }
   handleMessage (message) {
-    // console.log('-> UI:', message);
+    console.log('-> UI:', message);
     var handler = this.handlers[message.name];
     if (!handler) {
       console.warn('No handler found for event ' + message.name);
@@ -44,6 +44,7 @@ class Bridge {
 Bridge.prototype.handlers = {
   connected: function() {
     this.init();
+    this.vm.attr('inactive', false);
   },
   canFound: function () {
     this.vm.attr('inactive', false);
@@ -52,7 +53,7 @@ Bridge.prototype.handlers = {
     this.vm.attr('inactive', true);
   },
   update: function (data) {
-    updateDataSources(data);
+    updateDataSources(JSON.parse(data));
   },
   reloaded: function () {
     injectInstrumentation();
