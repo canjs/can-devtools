@@ -11,7 +11,3 @@
 	  <devtools-property-tree object="{viewModel}"></devtools-property-tree>
 	</devtools-collapse>
 {{/if}}
-
-<hr>
-
-{{stringifiedData}}

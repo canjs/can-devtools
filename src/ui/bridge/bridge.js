@@ -46,7 +46,7 @@ Bridge.prototype.handlers = {
     this.init();
   },
   canFound: function () {
-    //ignore
+    this.vm.attr('inactive', false);
   },
   canNotFound: function () {
     this.vm.attr('inactive', true);
