@@ -1,4 +1,4 @@
-import sendMessage from 'can-devtools/ui/send-message/';
+import sendMessage from 'src/ui/send-message/';
 
 var inject = function () {
   var global = 'window.__can_devtools_instrumentation_injected__';

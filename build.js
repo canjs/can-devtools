@@ -5,7 +5,7 @@ var debugBuild = argv.debug === true;
 
 stealTools.build({
   config: __dirname + "/package.json!npm",
-  main: 'can-devtools/ui/',
+  main: 'src/ui/',
   bundlesPath: 'chrome_extension/dist'
 }, {
 	minify: false,
@@ -15,7 +15,7 @@ stealTools.build({
 
 stealTools.export({
   system: {
-    main: "can-devtools/instrumentation/",
+    main: "src/instrumentation/",
   	config: __dirname + "/package.json!npm",
   },
   options: {
@@ -24,7 +24,7 @@ stealTools.export({
   outputs: {
     standalone: {
       format: "global",
-      modules: ["can-devtools/instrumentation/"],
+      modules: ["src/instrumentation/"],
       dest: __dirname+"/chrome_extension/dist/instrumentation/instrumentation.js",
       minify: false,
       removeDevelopmentCode: !debugBuild

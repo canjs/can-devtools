@@ -1,5 +1,5 @@
-import sendMessage from 'can-devtools/instrumentation/send-message/';
-import vmBehavior from 'can-devtools/instrumentation/agent/behaviors/viewmodel';
+import sendMessage from 'src/instrumentation/send-message/';
+import vmBehavior from 'src/instrumentation/agent/behaviors/viewmodel';
 
 class Agent {
   constructor (can) {

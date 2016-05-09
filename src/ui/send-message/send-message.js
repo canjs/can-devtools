@@ -1,4 +1,4 @@
-import backgroundConnection from 'can-devtools/ui/background-connection/';
+import backgroundConnection from 'src/ui/background-connection/';
 
 var sendMessage = function(name, data) {
 	//!steal-remove-start

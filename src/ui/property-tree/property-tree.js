@@ -6,9 +6,9 @@ import template from './property-tree.stache!';
 import children from './children.stache!';
 import parent from './parent.stache!';
 
-import {parse, compose} from 'can-devtools/ui/util/object';
+import {parse, compose} from 'src/ui/util/object';
 
-import 'can-devtools/ui/property/';
+import 'src/ui/property/';
 
 export const ViewModel = Map.extend({
   define: {

@@ -1,6 +1,6 @@
-import backgroundConnection from 'can-devtools/ui/background-connection/';
-import injectInstrumentation from 'can-devtools/ui/inject/';
-import {bind as bindToDataSources, update as updateDataSources} from 'can-devtools/ui/data-sources/';
+import backgroundConnection from 'src/ui/background-connection/';
+import injectInstrumentation from 'src/ui/inject/';
+import {bind as bindToDataSources, update as updateDataSources} from 'src/ui/data-sources/';
 
 class Bridge {
   constructor (vm) {

@@ -1,6 +1,6 @@
 import can from 'can';
-import sendMessage from 'can-devtools/ui/send-message/';
-import {parse, compose, omit} from 'can-devtools/ui/util/object';
+import sendMessage from 'src/ui/send-message/';
+import {parse, compose, omit} from 'src/ui/util/object';
 import deepEqual from 'deep-equal';
 
 var dataToSend = {};
