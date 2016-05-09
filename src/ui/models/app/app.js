@@ -3,9 +3,13 @@ import 'can/map/define/';
 
 const AppViewModel = can.Map.extend({
 	define: {
-		//whether the app is active
-		inactive: {
-			value: true,
+		status: {
+			get: function() {
+				return this.attr('canFound') ? 'ok': 'noCan';
+			}
+		},
+		canFound: {
+			value: false,
 			type: 'boolean'
 		}
 	}

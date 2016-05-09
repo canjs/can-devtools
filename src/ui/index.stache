@@ -2,12 +2,14 @@
 <can-import from="can-devtools/ui/collapse/" />
 <can-import from="can-devtools/ui/property-tree/" />
 
-{{#if inactive}}
-	<h1>CanJS not Detected</h1>
-{{/if}}
+{{#eq status 'noCan'}}
+	<h1>CanJS was not detected!</h1>
+	<p>For some possible reasons this is happening, visit the <a target="_blank" href="#">Devtools Docs</a>.</p>
+	<p>If you're still having trouble, please report this on <a target="_blank" href="https://github.com/canjs/can-devtools/issues">GitHub</a>.</p>
+{{/eq}}
 
-{{#if viewModel.length}}
+{{#eq status 'ok'}}
 	<devtools-collapse opened="true" title="ViewModel">
 	  <devtools-property-tree object="{viewModel}"></devtools-property-tree>
 	</devtools-collapse>
-{{/if}}
+{{/eq}}

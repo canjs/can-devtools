@@ -16,8 +16,9 @@ class Agent {
   listen () {
     window.addEventListener('message', function(event) {
       var message = event.data;
+      //!steal-remove-start
       console.log('-> Instrumentation', message);
-
+      //!steal-remove-end
       if (!this.isValidMessage(event)) {
         return;
       }
@@ -36,8 +37,9 @@ class Agent {
   handleMessage (message) {
     var handler = this.handlers[message.name];
     if (!handler) {
-      //TODO: Warning for no handler found
+      //!steal-remove-start
       console.warn('No handler found for event ' + message.name);
+      //!steal-remove-end
       return;
     }
 

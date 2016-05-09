@@ -1,4 +1,7 @@
 var stealTools = require("steal-tools");
+var argv = require('yargs').argv;
+
+var debugBuild = argv.debug === true;
 
 stealTools.build({
   config: __dirname + "/package.json!npm",
@@ -7,6 +10,7 @@ stealTools.build({
 }, {
 	minify: false,
 	bundleSteal: true,
+  removeDevelopmentCode: !debugBuild
 });
 
 stealTools.export({
@@ -22,7 +26,8 @@ stealTools.export({
       format: "global",
       modules: ["can-devtools/instrumentation/"],
       dest: __dirname+"/chrome_extension/dist/instrumentation/instrumentation.js",
-      minify: false
+      minify: false,
+      removeDevelopmentCode: !debugBuild
     }
   }
 });
