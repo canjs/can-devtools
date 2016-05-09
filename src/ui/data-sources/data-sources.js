@@ -1,16 +1,20 @@
 import can from 'can';
-import sendMessage from 'can-devtools/ui/send-message/';
-import {parse, compose, omit} from 'can-devtools/ui/util/object';
+import sendMessage from 'src/ui/send-message/';
+import {parse, compose, omit} from 'src/ui/util/object';
 import deepEqual from 'deep-equal';
 
 var dataToSend = {};
 var sendTimer;
 var batchedSend = function(data) {
+	//!steal-remove-start
 	console.log('UI: attempting to send', data);
+	//!steal-remove-end
 	can.extend(true, dataToSend, data);
 	window.clearTimeout(sendTimer);
 	sendTimer = window.setTimeout(function() {
+		//!steal-remove-start
 		console.log('UI: finally sending', dataToSend);
+		//!steal-remove-end
 		sendMessage('update', dataToSend);
 		dataToSend = {};
 	}, 10);
@@ -46,7 +50,9 @@ export function bind(appViewModel) {
 		data[name].bind('change', function(ev, attr, how, newVal) {
 
 			if(!ev.batchNum || (ev.batchNum && ev.batchNum !== uiBatchNum)) {
+				//!steal-remove-start
 				console.log('UI: data.' + name + ':changed');
+				//!steal-remove-end
 				var convertedValue = sources[name].convert(appViewModel.attr('data.' + name));
 				appViewModel[name].attr(convertedValue, true);
 
@@ -59,13 +65,19 @@ export function bind(appViewModel) {
 
 			if(!ev.batchNum || (ev.batchNum && ev.batchNum !== instBatchNum)) {
 				window.clearTimeout(updateTimer);
+				//!steal-remove-start
 				console.log('UI: ' + name + ':changed');
+				//!steal-remove-end
 				updateTimer = window.setTimeout(function(){
+					//!steal-remove-start
 					console.log('UI: ' + name + ':changed (finally!)');
+					//!steal-remove-end
 					var serializedValue = sources[name].serialize(appViewModel.attr(name));
 
 					if(deepEqual(serializedValue, data[name].serialize())) {
+						//!steal-remove-start
 						console.log('UI: ' + name + ':aborted');
+						//!steal-remove-end
 						return;
 					}
 

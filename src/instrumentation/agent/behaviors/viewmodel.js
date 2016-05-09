@@ -30,8 +30,7 @@ class ViewModelBehavior {
   }
 
   getAndBind () {
-    var el = this.element;
-    var vm = {};
+    const el = this.element;
 
     if(!el) {
       return;
@@ -39,8 +38,19 @@ class ViewModelBehavior {
 
     this.unbind();
 
-    //Use the older method since it works all the way back to 2.0
-    vm = this.can.$(el).data('scope');
+		var getVM = function(can, el) {
+			//Use the older method since it works all the way back to 2.0
+			var vm = can.$(el).data('scope');
+
+			if(!vm && el.parentElement) {
+				return getVM(can, el.parentElement);
+			}
+			else {
+				return vm;
+			}
+		}
+
+    var vm = getVM(this.can, el);
 
     if(vm) {
       this.bind(vm);

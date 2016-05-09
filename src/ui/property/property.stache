@@ -5,7 +5,7 @@
 	{{#eq type 'null'}}
 		null
 	{{/eq}}
-	
+
 	{{#eq type 'array'}}
 		Array[{{len}}]
 	{{/eq}}
@@ -19,8 +19,8 @@
 	{{/eq}}
 
 	{{#if editable}}
-		<input class="editor" type="text" can-value="val" (enter)="save" (blur)="{save}">
-		<span class="value" (dblclick)="edit">{{val}}</span>
+		<input class="editor" type="text" can-value="val" ($enter)="save" ($blur)="{save}">
+		<span class="value" ($dblclick)="edit">{{val}}</span>
 	{{/if}}
 
 </span>

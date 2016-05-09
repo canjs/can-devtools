@@ -22,7 +22,7 @@ export default function (found, notFound, checkLimit = 100000) {
 	  found();
 	} else if (window.steal && window.steal.done) {
 		//New steal detected, wait until everything is loaded then check
-		window.steal.done().then(function(){
+		window.steal.done().then(function() {
 			if(window.can) {
 				found();
 			} else {

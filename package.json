@@ -2,48 +2,37 @@
   "name": "can-devtools",
   "version": "0.0.2",
   "description": "Debugging tool for CanJS applications.",
-  "homepage": "",
   "author": {
     "name": "Bitovi",
     "email": "contact@bitovi.com",
     "url": "bitovi.com"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node build.js",
-    "document": "documentjs"
+    "build": "node build.js && npm run build:css",
+    "build:css": "node_modules/.bin/lessc src/ui/styles.less chrome_extension/dist/src/ui/ui.css"
   },
-  "files": [
-    "src"
-  ],
+  "engines": {
+    "node": "^5.6.0"
+  },
   "keywords": [
     "canjs",
     "devtools"
   ],
   "system": {
-    "transpiler": "babel",
-    "directories": {
-      "lib": "src"
-    },
-    "configDependencies": [],
-    "npmIgnore": [
-      "documentjs",
-      "testee",
-      "yeoman-environment",
-      "generator-donejs"
-    ]
+    "npmAlgorithm": "flat",
+    "configDependencies": []
   },
   "dependencies": {
-    "can": "^2.3.0-pre.8",
-    "deep-equal": "^1.0.0",
-    "jquery": "^2.1.4",
-    "steal": "^0.11.0-pre.6"
+    "deep-equal": "^1.0.0"
   },
   "devDependencies": {
-    "documentjs": "^0.3.0",
-    "funcunit": "^3.0.0",
+    "can": "^2.3.23",
+    "jquery": "^2.2.3",
+    "less": "^2.7.1",
+    "steal": "^0.16.4",
     "steal-qunit": "^0.1.1",
-    "steal-tools": "^0.11.0-pre.9",
-    "testee": "^0.2.0"
+    "steal-tools": "^0.16.2",
+    "transpile": "git://github.com/ccummings/transpile.git#72408598342edbf2cdfabe1ebceb0f599d3a5964",
+    "yargs": "^3.23.0"
   }
 }

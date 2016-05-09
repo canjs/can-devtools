@@ -1,10 +1,12 @@
 import can from 'can';
-import injectInstrumentation from 'can-devtools/ui/inject/';
-import Bridge from 'can-devtools/ui/bridge/';
-import AppViewModel from "can-devtools/ui/models/app/";
-import {list as dataSources} from 'can-devtools/ui/data-sources/';
+import injectInstrumentation from 'src/ui/inject/';
+import Bridge from 'src/ui/bridge/';
+import AppViewModel from "src/ui/models/app/";
+import {list as dataSources} from 'src/ui/data-sources/';
+import "src/ui/collapse/";
+import "src/ui/property-tree/";
 
-import template from 'can-devtools/ui/index.stache!';
+import template from 'src/ui/index.stache!';
 
 var initialData = {
 	data: {}
