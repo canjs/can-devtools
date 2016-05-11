@@ -3,6 +3,8 @@ import injectInstrumentation from 'src/ui/inject/';
 import Bridge from 'src/ui/bridge/';
 import AppViewModel from "src/ui/models/app/";
 import {list as dataSources} from 'src/ui/data-sources/';
+import "src/ui/collapse/";
+import "src/ui/property-tree/";
 
 import template from 'src/ui/index.stache!';
 

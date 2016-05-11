@@ -8,7 +8,8 @@
     "url": "bitovi.com"
   },
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js && npm run build:css",
+    "build:css": "node_modules/.bin/lessc src/ui/styles.less chrome_extension/dist/src/ui/ui.css"
   },
   "engines": {
     "node": "^5.6.0"
@@ -21,9 +22,17 @@
     "npmAlgorithm": "flat",
     "configDependencies": []
   },
+  "dependencies": {
+    "deep-equal": "^1.0.0"
+  },
   "devDependencies": {
     "can": "^2.3.23",
     "jquery": "^2.2.3",
+    "less": "^2.7.1",
+    "steal": "^0.16.4",
+    "steal-qunit": "^0.1.1",
+    "steal-tools": "^0.16.2",
+    "transpile": "git://github.com/ccummings/transpile.git#72408598342edbf2cdfabe1ebceb0f599d3a5964",
     "yargs": "^3.23.0"
   }
 }

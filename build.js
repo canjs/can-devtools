@@ -24,7 +24,7 @@ stealTools.export({
   outputs: {
     ui: {
 			ignore: [function(name, load) {
-				return /(\.less$|\.css$)/.test(load.address) ? true : false;
+				return /(\.less$|\.css$|vdom)/.test(load.address) ? true : false;
 			}],
       format: "global",
       modules: ["src/ui/"],
