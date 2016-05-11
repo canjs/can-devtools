@@ -21,15 +21,9 @@
     "npmAlgorithm": "flat",
     "configDependencies": []
   },
-  "dependencies": {
-    "deep-equal": "^1.0.0"
-  },
   "devDependencies": {
     "can": "^2.3.23",
     "jquery": "^2.2.3",
-    "steal": "^0.16.4",
-    "steal-qunit": "^0.1.1",
-    "steal-tools": "^0.16.2",
     "yargs": "^3.23.0"
   }
 }
