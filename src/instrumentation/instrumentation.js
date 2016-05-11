@@ -13,4 +13,4 @@ var canNotFound = function() {
 	sendMessage('noCanFound');
 }
 
-findCan(canFound, canFound);
+findCan(canFound, canNotFound);

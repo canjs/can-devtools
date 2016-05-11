@@ -50,12 +50,15 @@ class Bridge {
 Bridge.prototype.handlers = {
   connected: function() {
     this.init();
+		this.vm.attr('detecting', false);
     this.vm.attr('canFound', true);
   },
   canFound: function () {
+		this.vm.attr('detecting', false);
     this.vm.attr('canFound', true);
   },
   canNotFound: function () {
+		this.vm.attr('detecting', false);
     this.vm.attr('canFound', false);
   },
   update: function (data) {

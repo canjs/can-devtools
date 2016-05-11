@@ -19,9 +19,6 @@
   ],
   "system": {
     "npmAlgorithm": "flat",
-    "directories": {
-      "lib": "src"
-    },
     "configDependencies": []
   },
   "dependencies": {
