@@ -1,5 +1,3 @@
 # Summary
 
-Hello!
-
-* a list
+* [Component ViewModel](docs/viewmodel.md)
