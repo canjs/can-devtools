@@ -16,8 +16,10 @@ export const ViewModel = Map.extend({
   edit: function() {
     this.attr('showEditor', true);
   },
-  save: function() {
-    this.attr('showEditor', false);
+  save: function(context, el) {
+		if(el.val()) {
+			this.attr('showEditor', false);
+		}
   }
 });
 

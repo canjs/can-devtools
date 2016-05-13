@@ -19,7 +19,7 @@
 	{{/eq}}
 
 	{{#if editable}}
-		<input class="editor" type="text" can-value="val" ($enter)="save" ($blur)="{save}">
+		<input class="editor" type="text" {($value)}="val" ($enter)="save" ($blur)="save">
 		<span class="value" ($dblclick)="edit">{{val}}</span>
 	{{/if}}
 
