@@ -1,5 +1,5 @@
 <ol class="tree-outline">
 	{{#with object}}
-		{{> parentTemplate}}
+		{{> ../parentTemplate}}
 	{{/with}}
 </ol>

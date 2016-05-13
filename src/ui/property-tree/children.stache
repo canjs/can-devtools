@@ -1,7 +1,7 @@
 <ol class="children">
 	{{#if val}}
 		{{#with val}}
-			{{> parentTemplate}}
+			{{> ../parentTemplate}}
 		{{/with}}
 	{{/if}}
 </ol>

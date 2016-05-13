@@ -11,7 +11,7 @@
 
 {{#if canFound}}
 <devtools-collapse opened="true" title="ViewModel">
-  <devtools-property-tree object="{viewModel}"></devtools-property-tree>
+  <devtools-property-tree {object}="viewModel"></devtools-property-tree>
 </devtools-collapse>
 {{/if}}
 {{/if}}
