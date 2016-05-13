@@ -10,7 +10,7 @@
 {{/if}}
 
 {{#if canFound}}
-<devtools-collapse opened="true" title="ViewModel">
+<devtools-collapse opened="true" title="ViewModel" class="{{^if *collapse.opened}}collapse-closed{{/if}}" *collapse>
   <devtools-property-tree {object}="viewModel"></devtools-property-tree>
 </devtools-collapse>
 {{/if}}

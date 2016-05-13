@@ -3,16 +3,6 @@ var argv = require('yargs').argv;
 
 var debugBuild = argv.debug === true;
 
-// stealTools.build({
-//   config: __dirname + "/package.json!npm",
-//   main: 'src/ui/',
-//   bundlesPath: 'chrome_extension/dist'
-// }, {
-// 	minify: false,
-// 	bundleSteal: true,
-//   removeDevelopmentCode: !debugBuild
-// });
-
 stealTools.export({
 	system: {
 		config: __dirname + "/package.json!npm",

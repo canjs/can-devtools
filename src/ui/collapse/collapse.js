@@ -10,7 +10,8 @@ export const ViewModel = Map.extend({
       value: false
     },
     opened: {
-      value: false
+      value: false,
+			type: 'boolean'
     }
   },
   toggle: function() {

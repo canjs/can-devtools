@@ -1,4 +1,4 @@
-<h2 class="{{^hasContent}}no-content{{/hasContent}}" (click)="{toggle}">{{title}}</h2>
+<h2 class="{{^hasContent}}no-content{{/hasContent}}" ($click)="toggle">{{title}}</h2>
 <div class="collapse-content">
   <content></content>
 </div>
