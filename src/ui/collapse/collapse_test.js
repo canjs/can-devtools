@@ -4,7 +4,7 @@ import { ViewModel } from './collapse';
 // ViewModel unit tests
 QUnit.module('collapse');
 
-QUnit.test('Has message', function(){
+QUnit.test('Has message', function(assert) {
   var vm = new ViewModel();
-  QUnit.equal(vm.attr('message'), 'This is the devtools-collapse component');
+  assert.equal(vm.attr('message'), 'This is the devtools-collapse component');
 });
