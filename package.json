@@ -30,7 +30,7 @@
     "jquery": "^2.2.3",
     "less": "^2.7.1",
     "steal": "^0.16.4",
-    "steal-qunit": "^0.1.1",
+    "steal-qunit": "^2.0.0",
     "steal-tools": "^0.16.2",
     "transpile": "git://github.com/ccummings/transpile.git#72408598342edbf2cdfabe1ebceb0f599d3a5964",
     "yargs": "^3.23.0"
